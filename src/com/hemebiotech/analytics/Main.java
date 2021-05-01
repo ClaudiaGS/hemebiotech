@@ -16,7 +16,7 @@ public class Main {
         symptoms.add("tete");
 
         AnalyticsCounter count=new AnalyticsCounter(symptoms);
-        System.out.println("symptoms "+count.AnalyticsCounter(symptoms));
+        System.out.println("symptoms "+count.AnalyticsCounterMethod(symptoms));
 
     }
 }
