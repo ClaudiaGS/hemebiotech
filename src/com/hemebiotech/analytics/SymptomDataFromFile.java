@@ -6,22 +6,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+public class SymptomDataFromFile implements ISymptomReader {
+	private String filePath;
 
-public class ReadSymptomDataFromFile implements ISymptomReader {
-
-	private String filepath;
-
-	public ReadSymptomDataFromFile (String filepath) {
-		this.filepath = filepath;
+	public SymptomDataFromFile(String filePath) {
+		this.filePath = filePath;
 	}
-	
+
 	@Override
-	public List<String> GetSymptoms() {
+	public List<String> getSymptoms() {
 		List<String> result = new ArrayList<String>();
 		BufferedReader reader = null;
-		if (filepath != null) {
+		if (filePath != null) {
 			try {
-				reader=new BufferedReader (new FileReader(filepath));
+				reader=new BufferedReader (new FileReader(filePath));
 				String line = reader.readLine();
 				while (line != null) {
 					result.add(line);
