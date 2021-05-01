@@ -7,16 +7,15 @@ public class Main {
 
     public static void main(String[] args) {
         // write your code here
-        List<String> symptoms=new ArrayList<String>();
-        symptoms.add("tete");
-        symptoms.add("ventre");
-        symptoms.add("gorge");
-        symptoms.add("tete");
-        symptoms.add("gorge");
-        symptoms.add("tete");
+        ISymptomReader symptomList = new ReadSymptomDataFromFile("symptoms.txt");
+        List<String>symptoms1=new ArrayList<String>(symptomList.GetSymptoms());
+        System.out.println("symptoms read " + symptoms1);
+        AnalyticsCounter count1 = new AnalyticsCounter(symptomList.GetSymptoms());
+        System.out.println("symptoms counted " + count1.AnalyticsCounterMethod(symptoms1));
+        System.out.println("\n");
+        ExportSymptomFrequencyFromMap exportFile = new ExportSymptomFrequencyFromMap(count1.AnalyticsCounterMethod(symptoms1));
+        exportFile.export();
 
-        AnalyticsCounter count=new AnalyticsCounter(symptoms);
-        System.out.println("symptoms "+count.AnalyticsCounterMethod(symptoms));
 
     }
 }

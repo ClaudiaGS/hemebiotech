@@ -12,16 +12,13 @@ public class AnalyticsCounter {
 	}
 	//count method
 	public Map AnalyticsCounterMethod(List<String> symptomsList){
-		symptomsList=this.symptomsList;
 		Map<String, Integer> symptomsFrequency = new TreeMap<String, Integer>();
 		for(String currentSymptom:symptomsList){
 			if(!symptomsFrequency.containsKey(currentSymptom)){
-				symptomsFrequency.put(currentSymptom,0);
-				for(String symptom:symptomsList){
-					if(currentSymptom.equals(symptom)){
-						symptomsFrequency.put(currentSymptom,symptomsFrequency.get(currentSymptom)+1);
-					}
-				}
+				symptomsFrequency.put(currentSymptom,1);
+			} else
+			{
+				symptomsFrequency.put(currentSymptom,symptomsFrequency.get(currentSymptom)+1);
 			}
 		}return symptomsFrequency;
 	}
