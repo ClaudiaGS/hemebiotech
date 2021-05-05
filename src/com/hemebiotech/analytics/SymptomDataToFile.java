@@ -2,13 +2,13 @@ package com.hemebiotech.analytics;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Map;
 import java.util.TreeMap;
 
 /**
  * Writes data to file
  * <p>This class helps sending data from Map to output file</p> *
+ *
  * @author Claudia
  */
 public class SymptomDataToFile implements ISymptomWriter {
@@ -16,6 +16,7 @@ public class SymptomDataToFile implements ISymptomWriter {
 
     /**
      * Constructor
+     *
      * @param symptomsFrequency is a TreeMap with symptoms(String) and their occurrence
      */
     public SymptomDataToFile(Map<String, Integer> symptomsFrequency) {
@@ -29,17 +30,20 @@ public class SymptomDataToFile implements ISymptomWriter {
     public void writeSymptoms() {
         BufferedWriter writer = null;
         try {
-            writer=new BufferedWriter(new FileWriter("results.out"));
+            writer = new BufferedWriter(new FileWriter("results.out"));
             for (String symptom : symptomsFrequency.keySet()) {
                 writer.write(symptom + " " + String.valueOf(symptomsFrequency.get(symptom)));
                 writer.write("\n");
             }
-        } catch (IOException e) {
+        }
+        catch (Exception e) {
             e.printStackTrace();
-        } finally {
+        }
+        finally {
             try {
                 writer.close();
-            } catch (IOException e) {
+            }
+            catch (Exception e) {
                 e.printStackTrace();
             }
         }

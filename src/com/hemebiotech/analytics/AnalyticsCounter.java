@@ -22,7 +22,6 @@ public class AnalyticsCounter {
 
 		ISymptomWriter exportFile = new SymptomDataToFile(countedSymptoms);
 		exportFile.writeSymptoms();
-
 	}
 }
 
