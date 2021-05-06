@@ -17,7 +17,7 @@ public class AnalyticsCounter {
 		ISymptomReader symptomList = new SymptomDataFromFile("symptoms.txt");
 		List<String> symptoms = new ArrayList<String>(symptomList.getSymptoms());
 
-		SymptomCounter count = new SymptomCounter(symptoms);
+		ISymptomCounter count = new SymptomCounter(symptoms);
 		Map<String, Integer> countedSymptoms = count.countSymptoms(symptoms);
 
 		ISymptomWriter exportFile = new SymptomDataToFile(countedSymptoms);
